@@ -1,23 +1,27 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: Arial, sans-serif;
-}
-
 body {
-    background-color: #000;
-    color: #fff;
+    font-family: Arial, sans-serif;
+    background-color: black;
+    color: white;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
+    margin: 0;
 }
 
 .login-container {
-    width: 90%;
-    max-width: 400px;
+    background-color: #111;
+    padding: 40px;
+    border-radius: 10px;
+    width: 400px; /* Increased width */
     text-align: center;
+}
+
+.cod-banner {
+    width: 100%;
+    max-width: 250px; /* Smaller image size */
+    display: block;
+    margin: 0 auto 20px;
 }
 
 .title {
@@ -25,62 +29,38 @@ body {
     font-weight: bold;
 }
 
-.cod {
-    color: #fff;
-}
-
-.of {
-    color: #888;
-}
-
 .subtitle {
-    font-size: 14px;
+    font-size: 18px;
     margin-bottom: 20px;
 }
 
 form {
-    background-color: #111;
-    padding: 20px;
-    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
 }
 
 label {
-    display: block;
     text-align: left;
-    margin: 10px 0 5px;
+    margin-top: 10px;
 }
 
-input[type="email"], input[type="password"] {
-    width: 100%;
+input {
     padding: 10px;
-    margin-bottom: 10px;
-    background-color: #222;
-    border: 1px solid #444;
-    color: #fff;
-}
-
-.options {
-    text-align: left;
-    font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.recaptcha {
-    display: flex;
-    align-items: center;
-    gap: 5px;
-    font-size: 14px;
+    margin-top: 5px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
 }
 
 .login-btn {
-    width: 100%;
-    background-color: #ffc107;
-    color: #000;
-    border: none;
+    background-color: yellow;
+    color: black;
     padding: 10px;
-    font-size: 16px;
-    font-weight: bold;
+    margin-top: 20px;
+    border: none;
     cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
 }
 
 .footer-links {
@@ -88,7 +68,7 @@ input[type="email"], input[type="password"] {
 }
 
 .footer-links a {
-    color: #ffc107;
+    color: yellow;
     text-decoration: none;
     font-weight: bold;
 }
